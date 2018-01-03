@@ -1,0 +1,17 @@
+<ul class="pagination">
+    <li *ngIf="pageCount > 10" [class.disabled]="pageIndex==1" (click)="page(pageIndex-1)">
+        <a href="javascript:;">
+            <span>上一页</span>
+        </a>
+    </li>
+    <li *ngFor="let pageCode of pageCodes" [class.active]="pageIndex==pageCode" [class.disabled]="pageCode==-1"  >
+        <a *ngIf="pageCode == 1" href="javascript:;" (click)="page(pageCode)">{{pageCode}}</a>
+        <a *ngIf="pageCode == -1" href="javascript:;" class="">...</a>
+        <a *ngIf="pageCode != 1 && pageCode != -1" href="javascript:;" (click)="page(pageCode)">{{pageCode}}</a>
+    </li>
+    <li *ngIf="pageCount > 10" [class.disabled]="pageIndex==pageCount" (click)="page(pageIndex+1)">
+        <a href="javascript:;">
+            <span>下一页</span>
+        </a>
+    </li>
+</ul>
